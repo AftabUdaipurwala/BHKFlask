@@ -2,7 +2,7 @@ from flask import Flask,request,jsonify
 import Util
 app = Flask(__name__)
 
-@app.route("/Hello")
+@app.route("/get_location_names")
 def get_location_names():
   response =jsonify({
     'locations':Util.get_location_names()
@@ -10,7 +10,7 @@ def get_location_names():
   response.headers.add('Access-Control-Allow-Origin', '*')
   return response
 
-@app.route("/Predict Home Price", methods=['GET','POST'])
+@app.route("/predict_home_prices", methods=['GET','POST'])
 def predict_home_prices():
     bath=int(request.form['bath'])
     bhk=int(request.form['bhk'])
